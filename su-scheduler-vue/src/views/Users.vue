@@ -1,7 +1,12 @@
 <template>
-  <div>
-
-  </div>
+  <el-row>
+    <el-col :span="6">
+      <UsersList></UsersList>
+    </el-col>
+    <el-col :offset="1" :span="17">
+      <Scheduler></Scheduler>
+    </el-col>
+  </el-row>
 </template>
 
 <script lang="ts">
@@ -12,5 +17,17 @@ import UsersList from '@/components/UsersList.vue';
 @Component({
     components: { Scheduler, UsersList },
  })
-export default class Company extends Vue {}
+export default class Company extends Vue { 
+  mounted(): void {
+      this.$store.dispatch('loadCompanyUsers', 1);
+  }
+}
 </script>
+
+<style lang="scss" scoped>
+.el-col {
+  margin-top: 15px;
+  border-radius: 25px;
+  background: #eee;
+}
+</style>

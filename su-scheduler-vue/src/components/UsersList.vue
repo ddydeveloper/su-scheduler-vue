@@ -1,13 +1,13 @@
 <template>
-    <el-row>
-        <el-col :span="4">
-            <img src="img_avatar.png" alt="Avatar">
-        </el-col>
-        <el-col :span="20">
-            <div></div>
-            <div></div>
-        </el-col>
-    </el-row>
+    <div>
+        <div class="user-item" v-for="user in users" :key="user.id" @click="onSelectedUser(user)">
+            <img alt="Avatar" src="../assets/avatar.png" height="45" width="45">
+            <div class="description">
+                <p class="title">{{user.firstName}} {{user.lastName}}</p>
+                <p class="body">{{user.position.name}} at {{user.company.name}}</p>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
@@ -20,10 +20,37 @@ export default class UsersList extends Vue {
         return this.$store.state.users;
     }
 
-    mounted(): void {
-
+    onSelectedUser(user: User): void {
+        this.$store.dispatch("selectUser", user);
     }
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss" scoped>
+img {
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+}
+
+.description {
+    overflow: hidden;
+}
+
+.title {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.body {
+    margin: 0;
+    padding: 0; 
+    font-size: 12px;
+}
+
+.user-item {
+    margin: 15px;
+    cursor: pointer;
+}
+</style>
