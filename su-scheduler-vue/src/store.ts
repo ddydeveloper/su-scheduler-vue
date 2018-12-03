@@ -40,6 +40,26 @@ export default new Vuex.Store({
       state.company = company;
     },
     setMeetings(state, meetings: Meeting[]): void {
+      meetings.forEach((m: Meeting) => {
+        let hours = Math.floor(m.startTimeMinutes / 60);
+        let minutes = m.startTimeMinutes % 60;
+
+        let hoursStr = hours > 10 ? hours : `0${hours}`;
+        let minutesStr = minutes > 10 ? minutes : `0${minutes}`;
+        m.startTime = `${hoursStr}:${minutesStr}`;
+
+        hours = Math.floor((m.startTimeMinutes + m.durationMinutes) / 60);
+        minutes = (m.startTimeMinutes + m.durationMinutes) % 60;
+
+        hoursStr = hours > 10 ? hours : `0${hours}`;
+        minutesStr = minutes > 10 ? minutes : `0${minutes}`;
+        m.endTime = `${hoursStr}:${minutesStr}`;
+
+        const author = state.users.find((u: User) => u.id === m.createdBy);
+        if (author) {
+          m.author = author;
+        }
+      });
       state.meetings = meetings;
     },
     setParticipants(state, participants: Participant[]): void {
