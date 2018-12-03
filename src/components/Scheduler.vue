@@ -3,7 +3,7 @@
     <div v-if="meetings.length > 0">
       <MeetingCard v-for="meeting in meetings" :key="meeting.id" :meeting="meeting"></MeetingCard>
     </div>
-    <el-alert v-else title="There are no event for a selected uses" type="info"></el-alert>
+    <h2>Choose a user to see planned meetings</h2>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ import MeetingCard from "@/components/MeetingCard.vue";
 
 @Component({
   components: {
-    MeetingCard
+    MeetingCard,
   }
 })
 export default class Scheduler extends Vue {
@@ -28,5 +28,10 @@ export default class Scheduler extends Vue {
 .cards-container {
   padding-bottom: 1em;
   padding-right: 1em;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 1em;
 }
 </style>
