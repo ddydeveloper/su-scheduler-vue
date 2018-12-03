@@ -9,11 +9,17 @@ language: node_js
 node_js:
   - "8"
 
+addons:
+  sonarcloud:
+    organization: $SONAR_ORG_KEY
+    token: $SONAR_TOKEN
+
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - docker login -u _ --password=$HEROKU_API_KEY registry.heroku.com
 
 script:
+  - sonar-scanner
   - docker build -t herokuimage .
 
 deploy:
