@@ -12,7 +12,8 @@ node_js:
 addons:
   sonarcloud:
     organization: $SONAR_ORG_KEY
-    token: $SONAR_TOKEN
+    token:
+      secure: $SONAR_TOKEN
 
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
