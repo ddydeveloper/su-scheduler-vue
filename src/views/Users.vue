@@ -1,10 +1,14 @@
 <template>
-  <el-row>
+  <el-row :gutter="15">
     <el-col :span="6">
-      <UsersList></UsersList>
+      <div class="users-content">
+        <UsersList></UsersList>
+      </div>
     </el-col>
-    <el-col :offset="1" :span="17">
-      <Scheduler></Scheduler>
+    <el-col :span="18">
+      <div class="users-content">
+        <Scheduler></Scheduler>
+      </div>
     </el-col>
   </el-row>
 </template>
@@ -25,9 +29,9 @@ export default class Company extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.el-col {
+.users-content {
   margin-top: 15px;
-  border-radius: 15px;
+  border-radius: 4px;
   background: #eee;
 }
 </style>

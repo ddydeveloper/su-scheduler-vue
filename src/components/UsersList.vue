@@ -1,57 +1,68 @@
 <template>
-    <div>
-        <div class="user-item" v-for="user in users" :key="user.id" @click="onSelectedUser(user)">
-            <img v-if="!user.active" alt="Avatar" src="../assets/avatar.png" height="45" width="45">
-            <img v-if="user.active === true" alt="Avatar" src="../assets/avatar-active.png" height="45" width="45">
-            <div class="description">
-                <p class="title">{{user.firstName}} {{user.lastName}}</p>
-                <p class="body">{{user.position.name}} at {{user.company.name}}</p>
-            </div>
-        </div>
+  <div class="users-container">
+    <div class="user-item" v-for="user in users" :key="user.id" @click="onSelectedUser(user)">
+      <img v-if="!user.active" alt="Avatar" src="../assets/avatar.png" height="45" width="45">
+      <img
+        v-if="user.active === true"
+        alt="Avatar"
+        src="../assets/avatar-active.png"
+        height="45"
+        width="45"
+      >
+      <div class="description">
+        <p class="title">{{user.firstName}} {{user.lastName}}</p>
+        <p class="body">{{user.position.name}} at {{user.company.name}}</p>
+      </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
-import User from '@/models/user.ts';
+import { Component, Prop, Vue } from "vue-property-decorator";
+import User from "@/models/user.ts";
 
 @Component
 export default class UsersList extends Vue {
-    get users(): User[] {
-        return this.$store.state.users;
-    }
+  get users(): User[] {
+    return this.$store.state.users;
+  }
 
-    private onSelectedUser(user: User): void {
-        this.$store.dispatch('selectUser', user);
-    }
+  private onSelectedUser(user: User): void {
+    this.$store.dispatch("selectUser", user);
+  }
 }
 </script>
 
 <style scoped lang="scss" scoped>
 img {
-    border-radius: 50%;
-    float: left;
-    margin-right: 15px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 1em;
 }
 
 .description {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .title {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
 }
 
 .body {
-    margin: 0;
-    padding: 0; 
-    font-size: 12px;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
 }
 
 .user-item {
-    margin: 15px;
-    cursor: pointer;
+  margin: 1em;
+  cursor: pointer;
+}
+
+.users-container {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
 }
 </style>
