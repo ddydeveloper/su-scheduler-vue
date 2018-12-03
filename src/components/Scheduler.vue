@@ -3,7 +3,7 @@
     <div v-if="meetings.length > 0">
       <MeetingCard v-for="meeting in meetings" :key="meeting.id" :meeting="meeting"></MeetingCard>
     </div>
-    <h2 v-if="meetings.length <= 0">Choose a user to see planned meetings</h2>
+    <h3 v-if="meetings.length <= 0">Choose a user to see planned meetings</h3>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default class Scheduler extends Vue {
   padding-right: 1em;
 }
 
-h2 {
+h3 {
   text-align: center;
   padding-top: 1em;
 }
