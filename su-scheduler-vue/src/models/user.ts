@@ -7,4 +7,6 @@ export default class User {
     public position!: Position;
     public firstName!: string;
     public lastName!: string;
+
+    public active!: boolean;
 }

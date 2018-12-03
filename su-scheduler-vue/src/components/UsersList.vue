@@ -1,7 +1,8 @@
 <template>
     <div>
         <div class="user-item" v-for="user in users" :key="user.id" @click="onSelectedUser(user)">
-            <img alt="Avatar" src="../assets/avatar.png" height="45" width="45">
+            <img v-if="!user.active" alt="Avatar" src="../assets/avatar.png" height="45" width="45">
+            <img v-if="user.active === true" alt="Avatar" src="../assets/avatar-active.png" height="45" width="45">
             <div class="description">
                 <p class="title">{{user.firstName}} {{user.lastName}}</p>
                 <p class="body">{{user.position.name}} at {{user.company.name}}</p>
@@ -20,8 +21,8 @@ export default class UsersList extends Vue {
         return this.$store.state.users;
     }
 
-    onSelectedUser(user: User): void {
-        this.$store.dispatch("selectUser", user);
+    private onSelectedUser(user: User): void {
+        this.$store.dispatch('selectUser', user);
     }
 }
 </script>
