@@ -3,6 +3,11 @@ sudo: required
 services:
   - docker
 
+language: node_js
+
+node_js:
+  - "8"
+
 before_install:
   - wget -qO- https://toolbelt.heroku.com/install.sh | sh
   - docker login -u _ --password=$HEROKU_API_KEY registry.heroku.com
