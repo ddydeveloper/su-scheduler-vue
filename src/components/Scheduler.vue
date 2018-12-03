@@ -3,7 +3,7 @@
     <div v-if="meetings.length > 0">
       <MeetingCard v-for="meeting in meetings" :key="meeting.id" :meeting="meeting"></MeetingCard>
     </div>
-    <h2>Choose a user to see planned meetings</h2>
+    <h2 v-if="meetings.length <= 0">Choose a user to see planned meetings</h2>
   </div>
 </template>
 
