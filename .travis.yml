@@ -35,5 +35,8 @@ deploy:
 email:
   - ddydeveloper@gmail.com
 
-notifications:
-  slack: $SLACK_WS_NAME:$SLACK_TOKEN
+ notifications:
+  slack:
+    rooms:
+      - spbdotnet:LQchHl5OfFOciFmEI9TpUpvP#general
+      - spbdotnet:LQchHl5OfFOciFmEI9TpUpvP#random
