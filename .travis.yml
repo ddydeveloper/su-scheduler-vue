@@ -31,8 +31,6 @@ deploy:
     on:
       branch: master
 
-email:
-  - ddydeveloper@gmail.com
-
 notifications:
   slack: spbdotnet:LQchHl5OfFOciFmEI9TpUpvP
+  email: ddydeveloper@gmail.com
