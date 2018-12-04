@@ -1,7 +1,7 @@
 <template>
   <div class="users-container">
     <div class="user-item" v-for="user in users" :key="user.id" @click="onSelectedUser(user)">
-      <img v-if="!user.active" alt="Avatar" src="../assets/avatar.png" height="45" width="45">
+      <img v-if="user.active === false" alt="Avatar" src="../assets/avatar.png" height="45" width="45">
       <img
         v-if="user.active === true"
         alt="Avatar"

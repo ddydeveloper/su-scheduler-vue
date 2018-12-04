@@ -8,5 +8,5 @@ export default class User {
     public firstName!: string;
     public lastName!: string;
 
-    public active!: boolean;
+    public active: boolean = false;
 }
