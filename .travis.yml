@@ -35,8 +35,5 @@ deploy:
 email:
   - ddydeveloper@gmail.com
 
- notifications:
-  slack:
-    rooms:
-      - spbdotnet:LQchHl5OfFOciFmEI9TpUpvP#general
-      - spbdotnet:LQchHl5OfFOciFmEI9TpUpvP#random
+notifications:
+  slack: spbdotnet:LQchHl5OfFOciFmEI9TpUpvP
