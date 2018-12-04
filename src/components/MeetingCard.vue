@@ -68,7 +68,7 @@ export default class MeetingCard extends Vue {
 
 .box-card {
   display: inline-block;
-  width: 45%;
+  width: 47%;
   margin-top: 1em;
   margin-left: 1em;
   text-align: left;
