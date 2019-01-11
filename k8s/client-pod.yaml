@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: client-portal
+      image: ddydeveloper/meetme-client-portal
+      ports:
+        - containerPort: 808
