@@ -16,4 +16,4 @@ spec:
         - name: client
           image: ddydeveloper/meetme-client-portal
           ports:
-            - containerPort: 80    
+            - containerPort: 3000

@@ -6,6 +6,7 @@ COPY . .
 RUN npm run prod
 
 FROM nginx
+EXPOSE 3000
 RUN rm -rf /usr/share/nginx/html/*
 RUN rm /etc/nginx/conf.d/default.conf
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
